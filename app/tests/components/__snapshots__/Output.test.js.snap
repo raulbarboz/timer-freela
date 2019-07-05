@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Output correctly 1`] = `
+<div
+  className="output"
+>
+  <div
+    className="output__box"
+  >
+    <p>
+      Com Plano:
+    </p>
+    <span
+      className="outpu__box--span"
+    />
+  </div>
+  <div
+    className="output__box"
+  >
+    <p>
+      Sem Plano:
+    </p>
+    <span
+      className="outpu__box--span"
+    />
+  </div>
+</div>
+`;

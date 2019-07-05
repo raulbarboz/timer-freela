@@ -1,0 +1,77 @@
+*{
+    margin:0;
+    padding:0;
+}
+body{
+    background: #fbfbfbfb;
+    font-size:100%;
+    font-family: 'B612 Mono', monospace;
+}
+
+/* entry with - display: flex */
+.entry{
+    display:flex;
+    align-items: center;
+    align-content: space-between;
+    flex-wrap: wrap;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+form {
+    margin:0 auto;
+    width:100%;
+    padding:20px;
+}
+
+/* inputs, select */
+input[type=text], select {
+    color :rgb(255, 221, 71);
+    background: transparent;
+    border: 0;
+    padding:5px;
+    font-size:25px;
+    border-bottom: 3px solid rgb(255, 221, 71);;
+    width:100%;
+    margin: 10px auto;
+}
+
+input[type=text]:focus, select:focus {
+    outline: none;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: rgb(128, 128, 128);
+}
+::-moz-placeholder { /* Firefox 19+ */
+    color: rgb(128, 128, 128);
+}
+:-ms-input-placeholder { /* IE 10+ */
+    color: rgb(128, 128, 128);
+}
+:-moz-placeholder { /* Firefox 18- */
+    color: rgb(128, 128, 128);
+}
+
+/* Output */
+
+@media (max-width: 320px) {
+    body{
+        font-size:80%;
+    }
+}
+
+/* Menu */
+
+.menu{
+    background:rgb(255, 221, 71);
+    padding:10px;
+}
+
+.menu ul{
+    list-style: none;
+}
+
+.menu > ul > li {
+    color:white;
+}

@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Entry correctly 1`] = `
+<div
+  className="entry"
+>
+  <input
+    name="from"
+    onChange={[Function]}
+    placeholder="DDD DE ORIGEM"
+    type="text"
+    value=""
+  />
+  <input
+    name="to"
+    onChange={[Function]}
+    placeholder="DDD DE DESTINO"
+    type="text"
+    value=""
+  />
+  <input
+    name="minutes"
+    onChange={[Function]}
+    placeholder="MINUTOS"
+    type="text"
+    value=""
+  />
+  <select
+    name="plan"
+    onChange={[Function]}
+  >
+    <option
+      value="30"
+    >
+      Fale + 30
+    </option>
+    <option
+      value="60"
+    >
+      Fale + 60
+    </option>
+    <option
+      value="120"
+    >
+      Fale + 120
+    </option>
+  </select>
+</div>
+`;
