@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { addCompany } from '../actions/entry';
+import { startAddCompany } from '../actions/entry';
 
 function Entry(){
     const dispatch = useDispatch();
@@ -14,7 +14,7 @@ function Entry(){
     const handlerSubmit = (e) => {
         e.preventDefault();
         if(company){
-            dispatch(addCompany(company))
+            dispatch(startAddCompany(company))
             setCompany('')
         }
     }

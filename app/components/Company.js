@@ -3,7 +3,9 @@ import React from 'react';
 function Company(props) {
     return(
         <>
-            {console.log(props)}
+            {props.data.map((co) => {
+                return <div key={co.id}>{co.company}</div>
+            })}
         </>
     )
 }

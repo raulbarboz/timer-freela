@@ -1,8 +1,8 @@
 import { useDispatch } from 'react-redux';
-import { setEntry } from '../actions/entry';
+import { startSetEntry } from '../actions/entry';
 const Container = ({ children }) => {
     const dispatch = useDispatch();
-    dispatch(setEntry)  
+    dispatch(startSetEntry())  
     return children;
 }
 

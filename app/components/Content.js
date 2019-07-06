@@ -9,7 +9,7 @@ function Content() {
     return(
         <div className="container">
             <Entry />
-            <Company {...data} />
+            <Company data={data} />
         </div>
     )
 }
