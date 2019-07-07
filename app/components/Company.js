@@ -1,10 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 
 function Company(props) {
     return(
         <>
             {props.data.map((co) => {
-                return <div key={co.id}>{co.company}</div>
+                return <Link to={`/company/${co.id}`} key={co.id}>{co.company}</Link>
             })}
         </>
     )

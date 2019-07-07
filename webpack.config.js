@@ -28,5 +28,13 @@ module.exports = {
             'process.env.STORAGE_BUCKET': JSON.stringify(process.env.STORAGE_BUCKET),
             'process.env.MESSAGING_SENDER_ID': JSON.stringify(process.env.MESSAGING_SENDER_ID)
         })
-    ]
+    ],
+    devServer: {
+        contentBase: './',
+        historyApiFallback: true,
+        host:'localhost',
+        port:'8080',
+        disableHostCheck: true,
+        hot: true
+    }
 }
