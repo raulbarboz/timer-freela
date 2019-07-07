@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { startAddTask} from '../actions/tasks';
+import { useDispatch, useSelector } from 'react-redux';
+import { startSetTasks, startAddTask} from '../actions/tasks';
+import Timer from './Timer';
 import moment from 'moment';
 
 function CompanyId(props) {
     const dispatch = useDispatch();
+    const id = props.match.params.id;
+
+    const tasks = useSelector(state => state.tasks)
 
     const [action, setAction] = useState('Start');
     const [start, setStart] = useState();
@@ -21,8 +25,9 @@ function CompanyId(props) {
     }
     
     useEffect(() => {
+        dispatch(startSetTasks(id))
         if(start && stop){
-            dispatch(startAddTask(start, stop, props.match.params.id))
+            dispatch(startAddTask(start, stop, id))
         }
     }, [stop])
 
@@ -30,6 +35,7 @@ function CompanyId(props) {
         <>
             <h1>companyid{props.match.params.id}</h1>
             <button type='button' onClick={handlerAction}>{action}</button>
+            <Timer tasks={tasks}/>
         </>
     )
 }

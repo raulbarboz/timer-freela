@@ -23,20 +23,15 @@ export const startAddTask = (start, stop, id) => {
     tasks
 })
 
-export const startSetTasks = () => {
+export const startSetTasks = (id) => {
     return dispatch => {
-        return firebase.ref('/company/').once('value').then((snapshot) => {
+        return firebase.ref(`/company/${id}/tasks/`).once('value').then((snapshot) => {
             const tasks = [];
             snapshot.forEach((childSnapshot) => {
-                childSnapshot.forEach((childChildSnapshot) => {
-                    if(childChildSnapshot.key === "company"){
-                    }else{
-                        tasks.push({
-                            company_id: childSnapshot.key,
-                            ...childChildSnapshot.val()
-                        })
-                    }
-                })
+                tasks.push({
+                    id: childSnapshot.key,
+                    ...childSnapshot.val()
+                })  
             })
             return dispatch(setTasks(tasks))
         })
