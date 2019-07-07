@@ -6,7 +6,7 @@ require('dotenv').config({path: '.env'})
 module.exports = {
     entry: './app/app.js',
     output: {
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, 'public', 'dist'),
         filename: 'index_bundle.js'
     },
     module: {
@@ -18,7 +18,7 @@ module.exports = {
     mode: 'development',
     plugins: [
         new HtmlWebpackPlugin({
-            template: 'app/index.html'
+            template: 'public/index.html'
         }),
         new webpack.DefinePlugin({
             'process.env.API_KEY': JSON.stringify(process.env.API_KEY),
@@ -30,8 +30,9 @@ module.exports = {
         })
     ],
     devServer: {
-        contentBase: './',
+        contentBase: path.join(__dirname, 'public'),
         historyApiFallback: true,
+        publicPath: '/dist/',
         host:'localhost',
         port:'8080',
         disableHostCheck: true,

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Container from './Container';
 
 function CompanyId(props) {
     const [action, setAction] = useState('Start');
@@ -10,10 +11,10 @@ function CompanyId(props) {
         }
     }
     return(
-        <>
+        <Container>
             <h1>companyid{props.match.params.id}</h1>
             <button type='button' onClick={handlerAction}>{action}</button>
-        </>
+        </Container>
     )
 }
 
