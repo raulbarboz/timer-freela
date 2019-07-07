@@ -1,10 +1,11 @@
-const tasks = (state = [], action) => {
+const task = (state = [], action) => {
     switch (action.type) {
+      case 'ADD_TASK':
+        return [state, ...action.task]
       case 'SET_TASKS':
-        return action.prices
+        return action.tasks
       default:
         return state
     }
   }
-  
-  export default tasks
+export default task

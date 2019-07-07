@@ -1,28 +1,40 @@
+import firebase from '../firebase/firebase';
 
-// SET_TASKS
-
-/*
-export const setPrices = (prices) => ({
-    type: 'SET_PRICES',
-    prices
+// ADD_TASK
+export const addTask = (task) => ({
+    type: 'ADD_TASK',
+    task
   })
   
-  export const startSetPrices = () => {
-    return (dispatch) => {
-       return fetch('')
-        .then(response => {
-            return response.json()
-        })
-        .then(data => {
-            const prices = [];
-        
-            data.forEach((childSnapshot) => {
-                prices.push({
-                    ...childSnapshot
-                })
-            })
-            dispatch(setPrices(prices))
-        })
+export const startAddTask = (start, stop, id) => {
+    return dispatch => {
+       return firebase.ref(`/company/${id}/tasks/`).push({ start, stop }).then((ref) => {
+            dispatch(addTask({
+                id: ref.key,
+                start,
+                stop
+            }))
+       })
     }
   };
-  */
+
+  export const setTasks = (tasks) => ({
+    type: 'SET_TASKS',
+    tasks
+})
+
+export const startSetTasks = () => {
+    return dispatch => {
+        return firebase.ref('/company').once('value').then((snapshot) => {
+            const tasks = [];
+            snapshot.forEach((childSnapshot) => {
+                tasks.push({
+                    id: childSnapshot.key,
+                    ...childSnapshot.val()
+                })
+            })
+            return dispatch(setTasks(tasks))
+        })
+    }
+}
+  
